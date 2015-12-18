@@ -1,0 +1,869 @@
+<html lang=en>
+<head>
+<title>Miljul.in - Talk Live. Share Easy.</title>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="description" content="Miljul is an innovative collaboration platform offering real time video & audio communication with users worldwide. With fast, secure, high quality communication from the browser, without any installation, Miljul opens countless possibilities. Miljul is based on Web Real Time Communication (WebRTC), an open source technology that is transforming interpersonal and enterprise communication and collaboration.">
+<meta name=keywords content="WebRTC, WebRTC India, Miljul, Miljul.in, Video Conferencing, WebRTC Asia, Web Conferencing, Video Conference, Web Conference,Video Collaboration, Real Time Communication, Free Screen Share, Free Video Calls">
+<meta property=og:image content="https://www.miljul.in/images/logo.png">
+<link rel="shortcut icon" href="logo.ico">
+<link rel=author type=text/html href="https://www.miljul.in:5556">
+<meta name=author content="Team Miljul">
+<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/scrol-bars.css">
+<link rel="stylesheet" href="css/room.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/styles.css"> 
+<link rel="stylesheet" href="css/smallscreen.css" type=text/css > 
+
+<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/pmcehcchogemjkgofbnlhfdlgoedkpoa">
+<link rel="alternate" href="https://www.miljul.in:5556" hreflang="en" />
+
+</head>
+
+<body id="pagebody">
+
+
+<!--- start next page ie call page logoc  ........................................... -->
+
+<div id="mainWrap" style="    display: block;">
+    
+    <aside>
+        <ul id="asideIconHold">
+            <li style="cursor:default;"><b>INVITE</b></li>
+            
+            <li id="sendlink" title="Send mail from Miljul" data-placement="right" data-toggle="modal" data-target=#mailpopup>
+                <i class="fa fa-envelope-o fa-lg"></i>
+            </li>
+            
+            <li id="sendmail" title="Send mail from your inbox" data-placement=right onclick="openEmailClientWithRoomLink();">
+                <i class="fa fa-inbox fa-lg"></i>
+            </li>
+            
+            <li id="copylinkimg" data-clipboard-text="Copy Me!" title="Copy Link" data-placement="right">
+                <i id="copylink"  data-clipboard-target="currenturl" class="fa fa-link fa-lg zero-copy"></i>
+            </li>
+        </ul>
+    </aside>
+
+
+
+    <div class=alert-wrap>
+        <div class="alert alert-warning" role=alert style="float: right; width: auto; display: none;position: absolute; top:10;right:10"></div>
+    </div>
+
+    <section><span class=logo1>&nbsp;</span>
+        
+        <div class="small-logo-holder" style="display:none;">
+            
+            <div class="small-logo"><img src="images/logo.png" alt=miljul></div>
+        </div>
+
+
+        <div id="contentWrap">
+
+            <!-- top bar -->
+            <div id="topIconHolder" class=content-body>
+                <ul>
+                    
+<!--                <li style="display:none">
+                        <a id="allow-mic" data-val="mute" title="Mic" data-placement="bottom">
+                            <i class="fa fa-microphone"></i>
+                        </a>
+                    </li>
+                    
+                    <li style="display:none">
+                        <a id="allow-webcam" data-val="mute" title="Camera" data-placement=bottom>
+                            <i class="fa fa-video-camera"></i>
+                        </a>
+                    </li> -->
+                    
+                    <li id="extension_installed"  style="display:none">
+                        <a id="allow-screen" title="Screen Share" data-placement="bottom" class="slash">
+                            <i class="fa fa-desktop"></i>
+                        </a>
+                    </li>
+                    
+                    <li id="install-extension">
+                        <a id="install-allow-screen" title="Screen Share" data-placement="bottom" class="slash">
+                            <i class="fa fa-desktop"></i>
+                            <a href="#" onclick="chrome.webstore.install()" id="install-link">Screenshare</a>
+                        </a>
+                    </li>
+                                        
+                    <li>
+                        <a id="chat" title="Chat" data-placement="bottom" onclick="toggle_chat_popup();">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/" id="phone" title="End Call" data-placement=bottom style=color:red;>
+                            <i class="fa fa-phone fa-flip-horizontal"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- bottom bar -->
+            <div id="bottomIconHolder" class="content-body">
+                <ul>
+                    <li> <input id="currenturl" type="text" size="55" class="form-control" > </li>
+                    <li> <span class="numbers-of-users" > </span> </li>
+                    <li> <span class="users-list"> </span> </li>
+                </ul>
+            </div>
+
+            <!-- users -->
+            <div id="videoHold" class="content-body" style="">
+                <ul class="users-container"></ul>
+            </div>
+            
+        </div>
+   
+    </section>
+
+
+
+    <div id="chatbox" class="popup-box chat-popup" style=display:none;>
+        
+        <div class=popup-head>
+            <div class=popup-head-left>Miljul Chat</div>
+            <div class=popup-head-right><a href=javascript:toggle_chat_popup();>✕</a></div>
+            <div style="clear: both"></div>
+        </div>
+        
+        <div class=popup-messages>
+            <div id=all-messages style="padding:5px;"></div>
+        </div>
+        
+        <div class=main-input-box>
+            <input type=text style=width:80%; placeholder="Type message and press Enter">
+            
+            <div class="image-upload" style="  width: 10%; float: right;">
+                <label for="file-input" class="glyphicon glyphicon-plus">  </label>
+                <input id="file-input" type="file" style=" display: none;">
+            </div>
+
+            <p id="who-is-typing"></p>
+
+        </div>
+
+        <div style="background-color: rgb(171, 188, 196);">
+            <!-- <input style="color:#000000;margin-left: 30px;" type="file" id="file"> -->
+            <div style="color:#FFF;height:20px" id="file-progress"></div>
+        </div>
+    
+    </div>
+
+    <asideright>
+        <h3> Info : </h3>
+        <div id="channelInfo">
+            Self :
+            <div id="selfInfo"></div>
+            Peers : 
+            <div id="peersInfo"></div>
+            Start Time :
+            <div id="startTime"></div>
+        </div>
+        ..................
+        <div id="networkInfo">
+            Bandwidth : <p id="availableBandwidth"></p>
+        </div>
+        ...................
+        <div id="imagePreview" src=""></div>
+
+    </asideright>
+
+</div>
+
+
+<div id="workingchat">
+
+	<audio src="sounds/messagingsound.txt" id="message-sound"></audio>
+
+	<div class="users-list">
+		<div class="numbers-of-users">0</div>
+	</div>
+</div>
+
+
+<!-- mail popups -->
+<div class="modal" id="mailpopup">
+	<div class="modal-dialog" style="width:400px;">
+		<div class="modal-content">
+			<div class="modal-body">
+				
+                <input id="currenturl" type="text" class="form-control" style="display:none;"><br>
+				
+                <div style="padding:4px;width:100%;text-align:left;">
+					<p>Enter Email Ids</p>
+				</div>
+				
+                <input id="invitationemail" type=text class="form-control" placeholder="Enter Email Ids of participants separated by comma." autofocus="">
+				<br>
+			
+            </div>
+
+			<div class="modal-footer">
+				
+                <button id="invite" type="button" class="btn btn-success">Send Invite</button> 
+				
+                <button id="closemodel" type="button" class="btn btn-default" data-dismiss=modal>Close</button>
+					
+			</div>
+				
+		</div>
+    </div>
+</div>
+
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+        function shownotification(message){
+            if(message){
+               $(".alert").html(message);
+               $(".alert").show(); 
+            }
+            //$(".alert").alert();
+            setTimeout(function(){ $(".alert").hide(); }, 1500);
+        }
+
+        function sendMail(){
+
+                if($("#invitationemail").val() == ""){
+                    shownotification("Enter email address.");
+                }else{
+                    $.get("https://miljul.in:3000/email", { username: $("#username").val(), emails: $("#invitationemail").val(), link:$("#currenturl").val() }, function(data){
+                        if(data == "0"){
+                            shownotification("Enter vaild email address");
+                        }else{
+                            $("#closemodel").click();
+                            shownotification("Invitation sent.");
+                        }
+                    
+                });
+                }          
+        }
+
+
+        $("#invite").click(sendMail);
+
+        $('#invitationemail').keypress(function(e){
+            var keycode = (e.keyCode ? e.keyCode : e.which);
+            if(keycode == '13'){
+                sendMail();   
+            }
+        });
+
+            
+        $('#copylink').tooltip();
+        $('#sendlink').tooltip();
+        $('#sendmail').tooltip();
+/*        $('#allow-mic').tooltip();
+        $('#allow-webcam').tooltip();*/
+        $('#allow-screen').tooltip();
+        $('#share-files').tooltip();
+        $('#currenturl').tooltip();
+        $('#phone').tooltip();
+        $(".alert").hide();
+        $('#chat').tooltip();
+        
+         $("#currenturl").focus(function() { $(this).select(); } );
+
+        // document.getElementById("mainWrap").style.display = "none";
+        // document.getElementById("workingchat").style.display ="none";
+       
+
+        function toggle_chat_popup(){
+            if(document.getElementById("chatbox").style.display == "initial"){
+                document.getElementById("chatbox").style.display="none";
+            }else{
+                 document.getElementById("chatbox").style.display="initial";
+            }
+            
+        }
+
+        function open_popup(){
+            document.getElementById("chatbox").style.display="initial";
+        }
+</script>
+
+<script type="text/javascript">
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.hash);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+         var email = getParameterByName("email");
+         var name = getParameterByName("name");
+         var s  = getParameterByName("s");
+
+        var currentTimeTicker="" ;
+         if(s == ""){
+            if(email == "" && name == ""){
+               currentTimeTicker = new Date().getTime();
+            }
+         }
+         
+         if(email != ""){
+            $("#useremail").val(email);
+            $("#emailpresent").hide();
+            $("#startcall").text("Join Room");
+         }
+
+         if(name != ""){
+            $("#username").val(name);
+            $("#namepresent").hide();
+            $("#startcall").text("Join Room");
+         }
+
+        $("#username").keypress(function(event){
+             var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+                    $('#startcall').click();   
+                }
+        });
+
+        $("#useremail").keypress(function(event){
+             var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+                    $('#startcall').click();   
+                }
+        });
+</script>
+
+<script src="scripts/socket.io.js"></script>
+
+<script src="scripts/RTCMultiConnection.js"> </script>
+
+<script src="scripts/ZeroClipboard.js"></script>
+
+<script src="scripts/linkify.js"> </script>
+
+<script src="scripts/getConnectionStats.js"> </script>
+
+<script type=text/javascript>
+
+    if(name != "" && email !=""){
+        $("#startcall").click();
+    }
+
+    function alertshow(){
+        
+    }
+
+    if(location.hash==""){
+        $('#currenturl').val(location.origin+"/#/"+currentTimeTicker+"?s=1");
+
+        document.getElementById("copylinkimg").setAttribute("data-clipboard-text", $("#currenturl").val());
+
+     }else{
+        $('#currenturl').val(location.origin+"/"+location.hash.split('&')[0]);
+
+        document.getElementById("copylinkimg").setAttribute("data-clipboard-text", $("#currenturl").val());
+     }
+
+  
+    $("#sendlink").click(function(){
+       setTimeout('$("#invitationemail").focus()',0);
+    });
+</script>
+
+<script>
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60262675-1', 'auto');
+      ga('send', 'pageview');
+
+</script>
+
+
+ <script>
+    $('document').ready(function(){
+        
+        $('#invitationemail').focus();
+
+        $('#username').focus();
+
+        $('#audioButton').click(function(){
+          $(this).toggleClass('slash');
+        });
+
+        $('#videoButton').click(function(){
+          $(this).toggleClass('slash');
+        });
+
+        $('#allow-screen').click(function(){
+          $(this).toggleClass('slash');
+        });
+    });
+</script>
+
+<script>
+    
+    var copylink = new ZeroClipboard(document.getElementById("copylinkimg"), {
+      moviePath: "scripts/ZeroClipboard.swf"
+    } );
+
+    copylink.on( "load", function(client) {
+        copylink.on( "complete", function(client, args) {
+            shownotification("Link copied toclipboard : "+  args.text );
+          } );
+    } );
+</script>
+
+<script>
+
+function getElement(e) {
+    return document.querySelector(e);
+}
+
+var usersList = getElement('.users-list');
+var numbersOfUsers = getElement('.numbers-of-users');
+numbersOfUsers.innerHTML = 1;
+var usersContainer = getElement('.users-container');
+usersContainer.setAttribute("style"," width: 65%;  float: right;  padding-right: 20px;");
+
+
+function initiateWebRTC(){
+    
+    var o = "/";
+    var channelname;
+
+    socket = io.connect(o); 
+
+    rtcMultiConnection.extra = {
+        username: "anonymous",
+        color: "ffffff",
+        email: "anonymous@miljul.com"
+    };
+
+    //--------------------------open signalling channel --------------------------------------
+    rtcMultiConnection.openSignalingChannel = function(e) {
+        
+        var t = e.channel || this.channel;
+        io.connect(o).emit("new-channel", {
+            channel: t,
+            sender: rtcMultiConnection.userid,
+            name: rtcMultiConnection.extra.username,
+            email: rtcMultiConnection.extra.email
+        });
+
+        var n = io.connect(o + t);    
+        n.channel = t; 
+        
+        n.on("connect", function() {
+            e.callback && e.callback(n)
+        });
+
+        n.send = function(e) {
+            n.emit("message", {
+                sender: rtcMultiConnection.userid,
+                data: e
+            })
+        }; 
+
+        n.on("message", e.onmessage); 
+        
+        n.on("disconnect", "datalost");
+    };
+
+
+    socket.emit("presence", {
+        channel: rtcMultiConnection.channel
+    }); 
+
+    socket.on("presence", function(e) {
+
+        e ? 
+        (   
+            shownotification("Hang on. You are joining the room."), 
+            document.body.style.backgroundColor = "#323232",                     
+            rtcMultiConnection.connect()
+
+        ) : 
+        (  
+            shownotification("Hang on. Your room is getting ready."), 
+            document.body.style.backgroundColor = "#3D3D3D", 
+            rtcMultiConnection.open()
+        )
+    });
+
+    socket.emit("what-is-channel-status", {
+        channel: rtcMultiConnection.channel
+    });
+    
+
+    /*document.getElementById("vl-room-app").style.display = "none", */
+
+    socket.on("joined-channel", function(e) {  
+        var t = e.channel || this.channel;     
+        n = io.connect(o + t),    
+        n.channel = t, 
+        n.on("connect", function() {
+            console.log("#startjs-------------------n.channel connect ");
+            e.callback && e.callback(n)
+        }), 
+
+        n.send = function(e) {
+            console.log("#startjs------------------n.emit ");
+            n.emit("message", {
+                sender: rtcMultiConnection.userid,
+                data: e
+            })
+        }, 
+
+        n.on("message", e.onmessage), 
+        
+        n.on("disconnect", function(){ alert( "Lost Connection"); });
+
+        rtcMultiConnection.connect();
+
+    });
+
+    socket.on("created-channel", function(e) {
+        var t = e.channel || this.channel;
+        n = io.connect(o + t),    
+        n.channel = t, 
+        console.log(" open channel " , n.channel),
+
+        n.on("connect", function() {
+            e.callback && e.callback(n)
+        }), 
+
+        n.send = function(e) {
+            n.emit("message", {
+                sender: rtcMultiConnection.userid,
+                data: e
+            })
+        }, 
+
+        n.on("message", e.onmessage), 
+        
+        n.on("disconnect", function(){ alert( "Lost Connection"); });
+
+
+        rtcMultiConnection.open() ;
+    });
+}
+
+
+var rtcMultiConnection = new RTCMultiConnection;
+
+rtcMultiConnection.session = {
+    video   : !0,
+    audio   : !0,
+    data    : !0
+}, 
+
+rtcMultiConnection.sdpConstraints.mandatory = {
+    OfferToReceiveAudio: !0,
+    OfferToReceiveVideo: !0
+}, 
+
+rtcMultiConnection.customStreams = {}, 
+
+rtcMultiConnection.autoCloseEntireSession = !1, 
+
+rtcMultiConnection.autoTranslateText = !1, 
+
+rtcMultiConnection.maxParticipantsAllowed = 5, 
+
+rtcMultiConnection.setDefaultEventsForMediaElement = !1, 
+
+rtcMultiConnection.onopen = function(e) {
+    shownotification("<b>" + e.extra.username + "</b> joined the conversation.")
+};
+
+var whoIsTyping = document.querySelector("#who-is-typing");
+
+rtcMultiConnection.onmessage = function(e) {
+    return e.data.typing ? 
+    void(whoIsTyping.innerHTML = e.extra.username + " is typing ...") 
+    : e.data.stoppedTyping ? 
+        void(whoIsTyping.innerHTML = "") : 
+        (   whoIsTyping.innerHTML = "", 
+            addNewMessage({
+                            header: e.extra.username,
+                            message: rtcMultiConnection.autoTranslateText ? 
+                                linkify(e.data) + " ( " + linkify(e.original) + " )" : linkify(e.data),
+                            userinfo: getUserinfo(rtcMultiConnection.blobURLs[e.userid], "/chat-message.png"),
+                            color: e.extra.color
+            }), 
+            void(document.title = e.data)
+        )
+};
+
+
+var sessions = {};
+rtcMultiConnection.onNewSession = function(e) {
+    sessions[e.sessionid] || (sessions[e.sessionid] = e, e.join())
+}, 
+
+rtcMultiConnection.onRequest = function(e) {
+    rtcMultiConnection.accept(e)
+}, 
+
+rtcMultiConnection.onCustomMessage = function(e) {
+    if (e.hasCamera || e.hasScreen) {
+        var t = e.extra.username + " enabled webcam.";
+        e.hasScreen && (e.session.oneway = !0, rtcMultiConnection.sendMessage({
+            renegotiate: !0,
+            streamid: e.streamid,
+            session: e.session
+        }), t = e.extra.username + " is ready to share screen.")
+    }
+    if (e.hasMic && (e.session.oneway = !0, rtcMultiConnection.sendMessage({
+            renegotiate: !0,
+            streamid: e.streamid,
+            session: e.session
+        })), e.renegotiate) {
+        var n = rtcMultiConnection.customStreams[e.streamid];
+        n && rtcMultiConnection.peers[e.userid].renegotiate(n, e.session)
+    }
+}, 
+
+rtcMultiConnection.blobURLs = {};
+
+var islocalStream = 1;
+
+
+rtcMultiConnection.onstream = function(e) {
+    
+    e.stream.getVideoTracks().length && ( rtcMultiConnection.blobURLs[e.userid] = e.blobURL);
+    var t = e.mediaElement;
+    
+    if (t.setAttribute("preload", "none"), e.isScreen) {
+
+        1 == islocalStream && (t.setAttribute("class", "local"), islocalStream = 0);
+        
+        var n = document.createElement("li");
+        n.setAttribute("id", e.userid + "_screen");
+        
+        var i = document.createElement("div");
+        i.setAttribute("class", "custom_wrapper");
+        
+        var o = document.createElement("div");
+        o.setAttribute("class", "video"), 
+
+        o.appendChild(t), 
+        i.appendChild(o), 
+        n.appendChild(i), 
+
+        console.log("mediaElement", n), 
+        usersContainer.appendChild(n)
+    } 
+
+    else {
+        1 == islocalStream && (t.setAttribute("class", "local"), islocalStream = 0);
+        
+        var n = document.createElement("li");
+        n.setAttribute("id", e.userid);
+        
+        //add the name subtag 
+        var name = document.createElement("div");
+        name.setAttribute("id", "name");
+        name.setAttribute("style","color:#FFF;float:left;padding-left: 20px; }");
+        name.innerHTML=e.extra.username;
+
+        //make subtage for video
+        var i = document.createElement("div");
+        i.setAttribute("class", "custom_wrapper");
+        
+        var o = document.createElement("div");
+        o.setAttribute("class", "video"); 
+        o.id=e.userid;
+        o.appendChild(t); 
+
+        //add the fullscreen button 
+        var fullScreenButton = document.createElement("div");
+        fullScreenButton.setAttribute("id", "fullScreenButton");
+        fullScreenButton.setAttribute("style","color: white;  float:right ; line-height: 1.4");
+        fullScreenButton.className="fa fa-arrows";
+        fullScreenButton.onclick=function(event){
+            var vid=event.path[1].id;
+            var v= document.getElementById(vid).childNodes[0].childNodes[0].childNodes[0];
+            v.webkitEnterFullScreen();
+        };
+
+        //add the audio mute button
+        var videoButton=document.createElement("div");
+        videoButton.id="videoButton";
+        videoButton.setAttribute("data-val","mute");
+        videoButton.className="fa fa-video-camera";
+        videoButton.setAttribute("style","color: white; float: right;    padding-right: 10px; line-height: 1.4;");
+        videoButton.onclick= function(event) {
+            console.log(e);
+            var liVideoContainer=event.path[1].id;
+            var streamType= document.getElementById(liVideoContainer).childNodes[0].childNodes[0].childNodes[0].className;
+            var streamId= document.getElementById(liVideoContainer).childNodes[0].childNodes[0].childNodes[0].id;
+            $(this).toggleClass('slash');
+            console.log("Video => Stream ID : "+streamId+" Type : "+ streamType + " status :"+ this.getAttribute("data-val"));
+            if("mute" == this.getAttribute("data-val") ){
+                this.setAttribute("data-val", "unmute"); 
+                rtcMultiConnection.streams[streamId].mute({
+                    video: !0
+                });
+            } 
+            else{
+                this.setAttribute("data-val", "mute"); 
+                rtcMultiConnection.streams[streamId].unmute({
+                    video: !0
+                });
+            }  
+
+        }; 
+
+        //add the video mute button
+        var audioButton=document.createElement("div");
+        audioButton.id="audioButton";
+        audioButton.setAttribute("data-val","mute");
+        audioButton.className="fa fa-microphone";
+        audioButton.setAttribute("style","color: white; float: right;    padding-right: 25px; line-height: 1.4;");
+        audioButton.onclick = function() {
+            var liVideoContainer=event.path[1].id;
+            var streamType= document.getElementById(liVideoContainer).childNodes[0].childNodes[0].childNodes[0].className;
+            var streamId= document.getElementById(liVideoContainer).childNodes[0].childNodes[0].childNodes[0].id;
+            $(this).toggleClass('slash');
+            console.log("Video => Stream ID : "+streamId+" Type : "+ streamType + " status :"+ this.getAttribute("data-val"));
+            if("mute" == this.getAttribute("data-val") ){
+                this.setAttribute("data-val", "unmute"); 
+                rtcMultiConnection.streams[streamId].mute({
+                    audio: !0
+                });
+            } 
+            else{
+                this.setAttribute("data-val", "mute"); 
+                rtcMultiConnection.streams[streamId].unmute({
+                    audio: !0
+                });
+            }             
+        };
+
+        //add the snaspshot button
+        var snapshotButton=document.createElement("div");
+        snapshotButton.id="snapshotButton";
+        snapshotButton.className="fa fa-camera";
+        snapshotButton.setAttribute("style","color: white; float: right;    padding-right: 40px; line-height: 1.4;");
+        snapshotButton.onclick = function() {
+            var liVideoContainer=event.path[1].id;
+            var streamId= document.getElementById(liVideoContainer).childNodes[0].childNodes[0].childNodes[0].id;
+            var snaspshot=document.createElement("img");
+            rtcMultiConnection.streams[streamId].takeSnapshot(function(snapshot) {
+                snaspshot.src = snapshot;
+                document.getElementById("imagePreview").appendChild(snaspshot);
+            });         
+        };
+
+        i.appendChild(o); 
+        n.appendChild(i);
+        n.appendChild(name);
+        n.appendChild(fullScreenButton);
+        n.appendChild(audioButton);
+        n.appendChild(videoButton);
+        n.appendChild(snapshotButton);
+
+        console.log("mediaElement", n),
+        console.log(rtcMultiConnection.streams),  
+        usersContainer.appendChild(n);
+    }
+
+}, 
+
+rtcMultiConnection.onstreamended = function(e) {
+    e.isScreen ? $("#" + e.userid + "_screen").remove() : $("#" + e.userid).remove()
+}, 
+
+rtcMultiConnection.sendMessage = function(e) {
+    e.userid = rtcMultiConnection.userid, 
+    e.extra = rtcMultiConnection.extra, 
+    rtcMultiConnection.sendCustomMessage(e)
+}, 
+
+rtcMultiConnection.onclose = rtcMultiConnection.onleave = function(e) {
+    addNewMessage({
+        header: e.extra.username,
+        message: e.extra.username + " left the room.",
+        userinfo: getUserinfo(rtcMultiConnection.blobURLs[e.userid], "info.png"),
+        color: e.extra.color
+    }), 
+
+    $("#" + e.userid).remove(), 
+    shownotification(e.extra.username + " left the conversation.") ;
+};
+
+
+function updateLabel(e, r) {
+    if (-1 != e.position) {
+        var n = +e.position.toFixed(2).split(".")[1] || 100;
+        r.innerHTML = n + "%"
+    }
+}
+
+var progressHelper = {};
+
+rtcMultiConnection.onFileStart = function(e) {
+
+    addNewMessage({
+        header: rtcMultiConnection.extra.username,
+        message: "File shared: " + e.name + " ( " + bytesToSize(e.size) + " )",
+        userinfo: getUserinfo(rtcMultiConnection.blobURLs[rtcMultiConnection.userid], "images/share-files.png"),
+        callback: function(r) {        }
+    });
+
+    var n = document.createElement("div");
+    n.title = e.name, 
+    n.innerHTML = "<label>0%</label><progress></progress>", 
+    document.querySelector(".userchatmsg").appendChild(n),             
+    progressHelper[e.uuid] = {
+        div: n,
+        progress: n.querySelector("progress"),
+        label: n.querySelector("label")
+    }, 
+    progressHelper[e.uuid].progress.max = e.maxChunks
+}, 
+
+rtcMultiConnection.onFileProgress = function(e) {
+    var r = progressHelper[e.uuid];
+    r && (r.progress.value = e.currentPosition || e.maxChunks || r.progress.max, updateLabel(r.progress, r.label))
+}, 
+
+rtcMultiConnection.onFileEnd = function(e) {
+    if (!progressHelper[e.uuid]) return void console.error("No such progress-helper element exists.", e);
+    var r = progressHelper[e.uuid].div;
+    r.innerHTML = -1 != e.type.indexOf("image") ? 
+        '<a href="' + e.url + '" download="' + e.name + '">Download ' + e.name + ' </a><b/><img src="' + e.url + '" title="' + e.name + '">' 
+        : '<a href="' + e.url + '" download="' + e.name + '">Download ' + e.name + ' </a><br /><iframe src="' + e.url + '" title="' + e.name + '" style="width: 69%;border: 0;border-left: 1px solid black;height: inherit;"></iframe>', 
+    setTimeout(function() {
+        r = r.parentNode.parentNode.parentNode, 
+        r.querySelector(".user-info").style.height = r.querySelector(".user-activity").clientHeight + "px"
+    }, 10)
+};
+
+document.getElementById('file-input').onchange = function() {
+    var file = this.files[0];
+    rtcMultiConnection.send(file);
+};
+
+window.onload = function() {
+     initiateWebRTC();
+};
+
+</script>
+
+</body>
+
+</html>

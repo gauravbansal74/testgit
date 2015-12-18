@@ -1,0 +1,610 @@
+<html lang=en>
+<head>
+<title>Miljul.in - Talk Live. Share Easy.</title>
+<meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+<meta charset=utf-8>
+<meta name=viewport content="width=device-width, initial-scale=1.0, user-scalable=no">
+<meta name="description" content="Miljul is an innovative collaboration platform offering real time video & audio communication with users worldwide. With fast, secure, high quality communication from the browser, without any installation, Miljul opens countless possibilities. Miljul is based on Web Real Time Communication (WebRTC), an open source technology that is transforming interpersonal and enterprise communication and collaboration.">
+<meta name=keywords content="WebRTC, WebRTC India, Miljul, Miljul.in, Video Conferencing, WebRTC Asia, Web Conferencing, Video Conference, Web Conference,Video Collaboration, Real Time Communication, Free Screen Share, Free Video Calls">
+<meta property=og:image content="https://www.miljul.in/images/logo.png">
+<link rel="shortcut icon" href="logo.ico">
+<link rel=author type=text/html href="https://www.miljul.in:5556">
+<meta name=author content="Team Miljul">
+<meta http-equiv=X-UA-Compatible content="IE=edge,chrome=1">
+
+<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="css/scrol-bars.css">
+<link rel="stylesheet" href="css/room.css">
+<link rel="stylesheet" href="css/font-awesome.min.css">
+<link rel="stylesheet" href="css/normalize.css">
+<link rel="stylesheet" href="css/styles.css"> 
+<link rel="stylesheet" href="css/smallscreen.css" type=text/css > 
+
+<link rel="chrome-webstore-item" href="https://chrome.google.com/webstore/detail/pmcehcchogemjkgofbnlhfdlgoedkpoa">
+<link rel="alternate" href="https://www.miljul.in:5556" hreflang="en" />
+
+</head>
+
+<body id="pagebody">
+
+<div id="vl-room-app">
+    <div id="vl-create-room-view">
+        <div class="container-fluid" style="padding-right:0px;">
+            <div class="navbar navbar-static-top header">
+                <div class="container navbar-container" style=position:relative;>
+                    <div class=navbar-header>
+                        <a class="navbar-brand brand">
+                            <div class=logo-holder><img src="images/logo.png" alt=miljul></div>
+                        </a>
+                        <button class=navbar-toggle data-toggle=collapse data-target=#nav-collapse><span class=icon-bar></span> <span class=icon-bar></span> <span class=icon-bar></span></button>
+                    </div>
+                    <div class="collapse navbar-collapse navbar-right" id="nav-collapse">
+                        <ul class="nav navbar-nav navbar-right">
+                            <li><a href="/">HOME</a></li>
+                            <li><a href=about.html>ABOUT US</a></li>
+                            <li><a href=https://miljulin.wordpress.com target=_blank>BLOG</a></li>
+                            <li><a href=business.html>MILJUL FOR BUSINESS</a></li>
+                            <li><a href=contact.html>CONTACT US</a></li>
+                            <li><a href=faq.html>FAQ</a></li>
+                        </ul>
+                    </div>
+                    <div class=social-icon-hold>
+                        <ul class="social-icons pull-right">
+                            <li class=facebook>
+                                <a href=https://www.facebook.com/miljul.in target=_blank title=Facebook><img src=../images/facebook.png alt="Miljul Facebook"></a>
+                            </li>
+                            <li class=twitter>
+                                <a href=https://twitter.com/miljul_in target=_blank title=Twitter><img src=../images/twitter.png alt="miljul Twitter"></a>
+                            </li>
+                            <li class=linkedin>
+                                <a href=https://www.linkedin.com/company/miljul target=_blank title=Linkedin><img src=../images/linkedin.png alt="Miljul Linkedin"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="intro require-webrtc hack-height1">
+                <div class="alert alert-warning" role=alert style=float:right;width:100%;text-align:center;display:none;></div>
+                <div class=shell>
+                    <div class=entry>
+                        <h2 style=margin-bottom:2%;font-weight:600;font-style:italic;>Talk Live. Share Easy.</h2>
+                        
+                        <div id="browsersupport" style="display:none;">
+                            <span style="background-color: yellow; color: black">This browser does not support WebRTC, the technology behind Miljul. <br>Please use 
+                            <a href="https://support.google.com/chrome/answer/95346?hl=en">Chrome</a>, 
+                            <a href="https://www.mozilla.org/en-US/firefox/new/">Firefox</a>, or 
+                            <a href="http://www.opera.com/computer">Opera</a> browsers.</span>
+                        </div>
+                        
+                        <div class="demo-feild-inline" id="callform">
+                            <div class="demo-field input-margin" id="namepresent">
+                                <input type=text class="link label-input-label" placeholder="Enter your Name" id="username">
+                            </div>
+                            <div class="demo-field input-margin" id="emailpresent">
+                                <input type="email" class="link label-input-label" placeholder="Enter your email" id="useremail">
+                            </div>
+                            <div>
+                                <button id="startcall" class="btn btn-warning btn-lg">Open Room</button>
+                            </div>
+                        </div>
+                        
+                        <p style="margin-bottom:10px;">Free, fast, secure video calls with Miljul.</p>
+                        <p style="margin-bottom:10px;">Just enter your name and email. Open room. Invite people. Experience Miljul!</p>
+                        <p style="margin-bottom:10px;">We like to hear from you. 
+                        <a href=contact.html>Tell us</a> about your Miljul experience. Explore <a href="business.html">Miljul for Business</a>.</p>
+
+                        <ul class=small-screen-social-icon-wrapper style=display:none;>
+                            <li class=facebook>
+                                <a href=https://www.facebook.com/miljul.in target=_blank title=Facebook><img src=../images/facebook.png alt="Miljul Facebook"></a>
+                            </li>
+                            <li class=twitter>
+                                <a href=https://twitter.com/miljul_in target=_blank title=Twitter><img src=../images/twitter.png alt="miljul Twitter"></a>
+                            </li>
+                            <li class=linkedin>
+                                <a href=https://www.linkedin.com/company/miljul target=_blank title=Linkedin><img src=../images/linkedin.png alt="Miljul Linkedin"></a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <footer class=footer>
+                <p>© Copyright 2015 Miljul.in By using this site, you are accepting Mijul.in's <a href=term.html>Terms of Service and Privacy Policy</a></p>
+            </footer>
+        </div>
+    </div>
+</div>
+
+<!--- start next page ie call page logoc  ........................................... -->
+
+<div id="mainWrap">
+    
+    <aside>
+        <ul id="asideIconHold">
+            <li style="cursor:default;"><b>INVITE</b></li>
+            
+            <li id="sendlink" title="Send mail from Miljul" data-placement="right" data-toggle="modal" data-target="#mailpopup" data-container="body">
+                <i class="fa fa-envelope-o fa-lg"></i>
+            </li>
+            
+            <li id="sendmail" title="Send mail from your inbox" data-placement="right" onclick="openEmailClientWithRoomLink();" data-toggle="tooltip" data-container="body">
+                <i class="fa fa-inbox fa-lg"></i>
+            </li>
+            
+            <li  id="copyLink" title="Copy Link" data-placement="right" data-toggle="tooltip" data-container="body" >
+                <i class="fa fa-link fa-lg"></i>
+            </li>
+        </ul>
+    </aside>
+
+
+
+    <div class=alert-wrap>
+        <div class="alert alert-warning" role=alert style="float: right; width: auto; display: none;position: absolute; top:10;right:10"></div>
+    </div>
+
+    <section>
+        <textarea id="currenturl" cols="30" rows="10"></textarea>
+        <div id="nav-header">
+
+            <span class="logo1"></span>
+        
+            <div class="small-logo-holder" style="display:none;">
+                
+                <div class="small-logo"><img src="images/logo_bk.png" alt=miljul></div>
+                 <div id="topIconHolder-landscape" class="content-body" style="display:none;">
+                        <ul>
+                            <!-- <li><a  id="allow-mic-landscape" data-val="mute" title="Mic" data-placement="bottom"><i class="fa fa-microphone"></i></a></li>
+                            <li><a  id="allow-webcam-landscape" data-val="mute" title="Camera" data-placement="bottom"><i class="fa fa-video-camera"></i></a></li>
+                            <li id="extension_installed-landscape"><a  id="allow-screen-landscape" title="Screen Share" data-placement="bottom" class="slash"><i class="fa fa-desktop"></i></a></li>
+                            <li id="install-extension-landscape"><a title="Screen Share" data-placement="bottom" class="slash" onclick="chrome.webstore.install('https://chrome.google.com/webstore/detail/ldklenbdhlfgplklobfkkmlaedeojdle', successinstall, errorinstall);"><i class="fa fa-desktop"></i></a></li> -->
+                            <li style="display:none"><a href="#" id="share-files" title="File Sharing" data-placement="bottom" ><i class="fa fa-cloud-upload"></i></a></li>
+                            <li><a id="chat-landscape" title="Chat" data-placement="bottom" onclick="toggle_chat_popup();"><i class="fa fa-weixin"></i></a></li>
+                            <li><a href="/" id="phone-landscape" title="End Call" data-placement="bottom" style="color:red;"><i class="fa fa-phone fa-flip-horizontal"></i></a></li>
+                         </ul>
+                    </div>
+            </div>
+
+            <!-- top bar -->
+            <div id="topIconHolder" class="">
+                <ul>
+                    
+<!--                <li style="display:none">
+                        <a id="allow-mic" data-val="mute" title="Mic" data-placement="bottom">
+                            <i class="fa fa-microphone"></i>
+                        </a>
+                    </li>
+                    
+                    <li style="display:none">
+                        <a id="allow-webcam" data-val="mute" title="Camera" data-placement=bottom>
+                            <i class="fa fa-video-camera"></i>
+                        </a>
+                    </li> -->
+                    
+                    <li id="extension_installed"  style="display:none">
+                        <a id="allow-screen" title="Screen Share" data-placement="bottom" data-toggle="tooltip" class="slash">
+                            <i class="fa fa-desktop"></i>
+                        </a>
+                    </li>
+                    
+                    <li id="install-extension">
+                        <a id="install-allow-screen" title="Screen Share" data-placement="bottom" data-toggle="tooltip" class="slash">
+                            <i class="fa fa-desktop"></i>
+                            <a href="#" onclick="chrome.webstore.install()" id="install-link">Screenshare</a>
+                        </a>
+                    </li>
+                                        
+                    <li>
+                        <a id="chat" title="Chat" data-placement="bottom" data-toggle="tooltip" onclick="toggle_chat_popup();">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                    </li>
+                    
+                    <li>
+                        <a href="/" id="phone" title="End Call" data-placement="bottom" data-toggle="tooltip" style=color:red;>
+                            <i class="fa fa-phone fa-flip-horizontal"></i>
+                        </a>
+                    </li>
+                </ul>
+            </div>        
+        </div>
+
+        <!-- users -->
+        <div id="videoHold" class="content-body" style="">
+            <ul class="users-container"></ul>
+        </div>
+
+
+
+        <!-- bottom bar -->
+        <div id="bottomIconHolder" class="content-body">
+            <ul>
+                <li> <input id="currenturl" type="text" size="55" class="form-control" > </li>
+                <li> <span class="numbers-of-users" > </span> </li>
+                <li> <span class="users-list"> </span> </li>
+            </ul>
+        </div>
+
+        <div id="call-info-wrap">
+             <div class="call-info-icon">
+                 <span class="call-icon">
+                     <i class="fa fa-info"></i>
+                 </span> Call Info
+             </div>
+            <div class="call-info">
+                <h5> Call Information</h5>
+                <div id="channelInfo">
+                    <p><strong>Initiator:</strong> <span id="selfInfo"></span></p>
+                    <p><strong>Participants:</strong> <span id="peersInfo"></span></p>
+                    <p><strong>Call Started At:</strong> <span id="startTime"></span></p>                
+                </div>
+                <div id="networkInfo">
+                    <p><strong>Bandwidth:</strong><span id="availableBandwidth"></span></p>
+                </div>
+                <div id="imagePreview" src=""></div>
+            </div>
+        </div>
+   
+    </section>
+    
+    <div class="small-footer" style="display:none;">
+        <ul id="small-footer-icon-hold">
+            <li class="invite" style="cursor:default;"></li>
+            <li id="sendlink-footer" data-target="#mailpopup" data-toggle="modal" data-placement="right" title="Send mail from Miljul" class="send-link-small-footer"><i class="fa fa-envelope-o fa-lg"></i></li>
+            <li id="sendmail-footer" onclick="openEmailClientWithRoomLink();" data-placement="right" title="Send mail from your inbox" class="send-mail-small-footer"><i class="fa fa-inbox fa-lg"></i></li>
+            <li id="copylink-footer" data-placement="right" title="Copy Link" class="zero-copy"><i id="copylinkimg-landscape" data-clipboard-text="Copy Me!" data-clipboard-target="currenturl"  class="fa fa-link fa-lg"><i>&nbsp;</i></i></li>
+        </ul>
+    </div>
+
+
+    <div id="chatbox" class="popup-box chat-popup" style=display:none;>
+        
+        <div class=popup-head>
+            <div class=popup-head-left>Miljul Chat</div>
+            <div class=popup-head-right><a href=javascript:toggle_chat_popup();>✕</a></div>
+            <div style="clear: both"></div>
+        </div>
+        
+        <div class=popup-messages>
+            <div id=all-messages style="padding:5px;"></div>
+        </div>
+        
+        <div class=main-input-box>
+            <input id="type-msg-here"type=text placeholder="Type message and press Enter">
+            
+            <div class="image-upload" >
+                <label for="file-input" class="glyphicon glyphicon-paperclip">  </label>
+                <input id="file-input" type="file" style=" display: none;">
+            </div>
+
+            <p id="who-is-typing"></p>
+
+        </div>
+
+        <div style="background-color: rgb(171, 188, 196);">
+            <!-- <input style="color:#000000;margin-left: 30px;" type="file" id="file"> -->
+            <div style="color:#FFF;height:20px" id="file-progress"></div>
+        </div>
+    
+    </div>
+
+
+</div>
+
+
+<div id="workingchat">
+
+    <audio src="sounds/messagingsound.txt" id="message-sound"></audio>
+
+    <div class="users-list">
+        <div class="numbers-of-users">0</div>
+    </div>
+</div>
+
+
+<!-- mail popups -->
+<div class="modal" id="mailpopup">
+    <div class="modal-dialog" style="width:400px;">
+        <div class="modal-content">
+            <div class="modal-body">                        
+                <div style="padding:4px;width:100%;text-align:left;">
+                    <p>Enter Email Ids</p>
+                </div>
+                
+                <input id="invitationemail" type=text class="form-control" placeholder="Enter Email Ids of participants separated by comma." autofocus="">
+                <br>
+            
+            </div>
+
+            <div class="modal-footer">
+                
+                <button id="invite" type="button" class="btn btn-success">Send Invite</button> 
+                
+                <button id="closemodel" type="button" class="btn btn-default" data-dismiss=modal>Close</button>
+                    
+            </div>
+                
+        </div>
+    </div>
+</div>
+
+<script src="scripts/jquery.min.js"></script>
+<script src="scripts/bootstrap.min.js"></script>
+
+<script type="text/javascript">
+
+        function shownotification(message){
+            if(message){
+               $(".alert").html(message);
+               $(".alert").show(); 
+            }
+            //$(".alert").alert();
+            setTimeout(function(){ $(".alert").hide(); }, 1500);
+        }
+
+        function sendMail(){
+
+                if($("#invitationemail").val() == ""){
+                    shownotification("Enter email address.");
+                }else{
+                    $.get("https://miljul.in:3000/email", { username: $("#username").val(), emails: $("#invitationemail").val(), link:$("#currenturl").val() }, function(data){
+                        if(data == "0"){
+                            shownotification("Enter vaild email address");
+                        }else{
+                            $("#closemodel").click();
+                            shownotification("Invitation sent.");
+                        }
+                    
+                });
+                }          
+        }
+
+
+        $("#invite").click(sendMail);
+
+        $('#invitationemail').keypress(function(e){
+            var keycode = (e.keyCode ? e.keyCode : e.which);
+            if(keycode == '13'){
+                sendMail();   
+            }
+        });
+
+        $(".alert").hide();
+        
+         $("#currenturl").focus(function() { $(this).select(); } );
+
+         document.getElementById("mainWrap").style.display = "none";
+         document.getElementById("workingchat").style.display ="none";
+       
+
+        function toggle_chat_popup(){
+            if(document.getElementById("chatbox").style.display == "initial"){
+                document.getElementById("chatbox").style.display="none";
+            }else{
+                 document.getElementById("chatbox").style.display="initial";
+				 $('#type-msg-here').focus();
+            }
+            
+        }
+
+        function open_popup(){
+            document.getElementById("chatbox").style.display="initial";
+        }
+</script>
+
+<script type="text/javascript">
+
+        function getParameterByName(name) {
+            name = name.replace(/[\[]/, "\\[").replace(/[\]]/, "\\]");
+            var regex = new RegExp("[\\?&]" + name + "=([^&#]*)"),
+                results = regex.exec(location.hash);
+            return results === null ? "" : decodeURIComponent(results[1].replace(/\+/g, " "));
+        }
+
+         var email = getParameterByName("email");
+         var name = getParameterByName("name");
+         var s  = getParameterByName("s");
+         console.log(location.href+email);
+
+        var currentTimeTicker="" ;
+         if(s == ""){
+            if(email == "" && name == ""){
+               currentTimeTicker = new Date().getTime();
+            }
+         }
+         
+         if(email != ""){
+            $("#useremail").val(email);
+            $("#emailpresent").hide();
+            $("#startcall").text("Join Room");
+         }
+
+         if(name != ""){
+            $("#username").val(name);
+            $("#namepresent").hide();
+            $("#startcall").text("Join Room");
+         }
+
+        $("#username").keypress(function(event){
+             var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+                    $('#startcall').click();   
+                }
+        });
+
+        $("#useremail").keypress(function(event){
+             var keycode = (event.keyCode ? event.keyCode : event.which);
+                if(keycode == '13'){
+                    $('#startcall').click();   
+                }
+        });
+</script>
+
+<script src="scripts/socket.io.js"></script>
+
+<script src="scripts/RTCMultiConnection.js"> </script>
+
+<script src="scripts/ui.main.js"> </script>
+
+<script src="scripts/ZeroClipboard.js"></script>
+
+<script src="scripts/linkify.js"> </script>
+
+<script src="scripts/getConnectionStats.js"> </script>
+
+<script type=text/javascript>
+
+    if(name != "" && email !=""){
+        $("#startcall").click();
+    }
+
+    function alertshow(){
+        
+    }
+
+    if(location.hash==""){
+        $('#currenturl').val(location.origin+"/#/"+currentTimeTicker+"?s=1");
+
+        document.getElementById("copyLink").setAttribute("data-clipboard-text", $("#currenturl").val());
+
+     }else{
+        $('#currenturl').val(location.origin+"/"+location.hash.split('&')[0]);
+
+        document.getElementById("copyLink").setAttribute("data-clipboard-text", $("#currenturl").val());
+     }
+
+    var isIE9 = /MSIE 9/i.test(navigator.userAgent);
+    var isIE10 = /MSIE 10/i.test(navigator.userAgent);
+    var isIE11 = /rv:11.0/i.test(navigator.userAgent);
+    var isSafari ;//;= navigator.userAgent.toLowerCase().indexOf('safari') != -1;
+    var ua = navigator.userAgent.toLowerCase();
+    if(ua.indexOf('safari') != -1){
+        if(ua.indexOf('chrome')!=-1){
+            isSafari = false;
+        }else{
+            isSafari = true;
+        }
+    }
+
+    if(isIE9 || isIE10 || isIE11 || isSafari){
+        $("#browsersupport").show();
+        $("#callform").hide();
+    }
+
+    var isOpera=/OPR/i.test(navigator.userAgent);
+    //Hiding screenshare if Browser is not Chorme
+    //||isOpera==true
+    if(window.chrome ===undefined){
+
+        document.getElementById("install-extension").style.display="none";
+        document.getElementById("extension_installed").style.display="none";
+        document.getElementById("topIconHolder").style.width = "auto";
+    }
+
+    if(isOpera==true){
+        document.getElementById("install-extension").style.display="none";
+        document.getElementById("extension_installed").style.display="none";
+        document.getElementById("topIconHolder").style.width = "auto";
+    }
+
+  
+    $("#sendlink").click(function(){
+       setTimeout('$("#invitationemail").focus()',0);
+    });
+</script>
+
+<script>
+     (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+      ga('create', 'UA-60262675-1', 'auto');
+      ga('send', 'pageview');
+
+</script>
+
+
+ <script>
+    $('document').ready(function(){
+
+        $("body").tooltip({ selector: '[data-toggle=tooltip]' });
+
+        $('#sendlink').tooltip();
+
+        $('.call-icon').on('click',function(){
+
+            $('.call-info').toggle('slow');
+        });
+        
+        $('#invitationemail').focus();
+
+        $('#username').focus();
+
+        $('#audioButton').click(function(){
+          $(this).toggleClass('slash');
+        });
+
+        $('#videoButton').click(function(){
+          $(this).toggleClass('slash');
+        });
+
+        $('#allow-screen').click(function(){
+          $(this).toggleClass('slash');
+        });
+
+
+
+        $('#copyLink').on('click', function(e) {
+
+            var copyTextarea = document.querySelector('#currenturl');
+            copyTextarea.select();
+
+            try{
+               var successful = document.execCommand('copy');
+               var msg = successful ? 'successful' : 'unsuccessful';
+               shownotification("Link copied to clipboard");
+            }catch (err) {
+               console.log('Oops, unable to copy');
+            }
+
+        });
+
+         //using mutation observers to lookup changes in li's
+
+            var target = document.querySelector('.users-container');
+
+            var observer = new MutationObserver(function(mutations) {
+              mutations.forEach(function(mutation) {
+                if(mutation.type=="childList"){
+                    var lis=$(target).children().length;
+
+                    if(lis>1){
+                        $(target).find('li').removeClass('one-li third-li').addClass('second-li');
+                    }else{
+                        $(target).find('li').removeClass('second-li').addClass('one-li');
+                    }
+
+                    if(lis==3){
+                        $("ul.users-container li:nth-child(3)")
+                        .removeClass('second-li').addClass('third-li');
+                    }else{
+                        $("ul.users-container li:nth-child(3)")
+                        .removeClass('third-li').addClass('fourth-li');
+                    }
+
+                }
+              });    
+            });
+
+            observer.observe(target,{childList: true});
+
+        /*using mutation observers ends here*/
+
+    });
+</script>
+
+
+
+    </body>
+
+</html>

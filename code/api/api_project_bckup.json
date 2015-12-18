@@ -1,0 +1,27 @@
+{
+  "name": "Muljul API documentation",
+  "version": "0.3.0",
+  "description": "This documentat contains all REST API enedpoints",
+  "title": "Custom apiDoc browser title",
+  "url": "https://localhost:8066",
+  "sampleUrl": "https://localhost:8066",
+  "header": {
+    "title": "My own header title",
+    "content": "<h1>Miljul</h1>\n<p>This document contains the listining of all API docs fro consumption from mobile , browser , third party etc .</p>\n<h2>Api Docs</h2>\n"
+  },
+  "footer": {
+    "title": "My own footer title",
+    "content": "<h2>Miljul 2015</h2>\n<p>See the demo site for working of the APIs</p>\n"
+  },
+  "template": {
+    "withCompare": true,
+    "withGenerator": true
+  },
+  "apidoc": "0.2.0",
+  "generator": {
+    "name": "apidoc",
+    "time": "2015-10-20T17:18:25.495Z",
+    "url": "http://apidocjs.com",
+    "version": "0.13.1"
+  }
+}

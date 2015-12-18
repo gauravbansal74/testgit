@@ -1,0 +1,37 @@
+<html>
+<head>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+
+<script>// <![CDATA[
+$(document).ready(function() {
+    $.get("https://service.xirsys.com/ice",
+        {
+            ident: "rangaprasadt",
+            secret: "2135180e-571d-11e5-b005-2d01b919b9ec",
+            domain: "dev.miljul.in",
+            application: "default",
+            room: "default",
+            secure: 1
+        },
+        function(data, status) {
+            alert("Data: " + data + "nnStatus: " + status);
+            console.log("Data: " , data  ,  "nnStatus: " , status);
+        }
+    );
+});
+</script>
+
+</head>
+
+<body>
+Program for obtaining xirsys details ...
+
+</body>
+</html>
+
+<!--
+
+Data:  Object {s: 200, p: "/ice", e: null, d: Object}d: ObjecticeServers: Array[5]0: Objecturl: "stun:turn02.uswest.xirsys.com"__proto__: Object1: Objectcredential: "0eabc3cc-52bd-11e5-9fe8-680b2c158d26"url: "turn:turn02.uswest.xirsys.com:443?transport=udp"username: "1_0eabc30e-52bd-11e5-8587-3ca0177e5db5"__proto__: Object2: Objectcredential: "0eabc3cc-52bd-11e5-9fe8-680b2c158d26"url: "turn:turn02.uswest.xirsys.com:443?transport=tcp"username: "1_0eabc30e-52bd-11e5-8587-3ca0177e5db5"__proto__: Object3: Objectcredential: "0eabc3cc-52bd-11e5-9fe8-680b2c158d26"url: "turn:turn02.uswest.xirsys.com:5349?transport=udp"username: "1_0eabc30e-52bd-11e5-8587-3ca0177e5db5"__proto__: Object4: Objectcredential: "0eabc3cc-52bd-11e5-9fe8-680b2c158d26"url: "turn:turn02.uswest.xirsys.com:5349?transport=tcp"username: "1_0eabc30e-52bd-11e5-8587-3ca0177e5db5"__proto__: Objectlength: 5__proto__: Array[0]__proto__: Objecte: nullp: "/ice"s: 200__proto__: Object nnStatus:  success
+
+-->

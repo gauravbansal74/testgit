@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+
+<url>
+  <loc>https://dev.miljul.in:5556/</loc>
+  <lastmod>2015-09-10T05:22:15+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://dev.miljul.in:5556/about.html</loc>
+  <lastmod>2015-09-10T05:22:15+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://dev.miljul.in:5556/business.html</loc>
+  <lastmod>2015-09-10T05:22:18+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://dev.miljul.in:5556/contact.html</loc>
+  <lastmod>2015-09-10T05:22:15+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://dev.miljul.in:5556/faq.html</loc>
+  <lastmod>2015-09-10T05:22:13+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+<url>
+  <loc>https://dev.miljul.in:5556/term.html</loc>
+  <lastmod>2015-09-10T05:22:16+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+</url>
+</urlset>
