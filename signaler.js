@@ -13,7 +13,7 @@ var pool = mysql.createPool({
     port        : '3306',
     user        : 'root',
     //password    : '',
-    password    : '@dmin123',
+    password    : 'miljul123',
     //password  : 'altanaimysql',
     database    : 'miljul',
     debug       :  false
