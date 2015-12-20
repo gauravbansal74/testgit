@@ -323,9 +323,7 @@ getElement("#install-allow-screen").onclick = function() {
     this.disabled = !0;
     chrome.webstore.install('https://chrome.google.com/webstore/detail/pmcehcchogemjkgofbnlhfdlgoedkpoa', 
        function() { 
-            this.disabled = !0;
-            var screenid= captureSourceId();
-            addsharescreen(screenid);
+            getElement("#allow-screen").click();
         }, 
        function() { 
             alert("You did not complete the extension installation !");
@@ -339,7 +337,7 @@ var rtcMultiConnection = new RTCMultiConnection;
 rtcMultiConnection.session = {
     video   : !0,
     audio   : !0,
-    data    : !0
+    data    : !0.
 }, 
 
 rtcMultiConnection.sdpConstraints.mandatory = {
