@@ -323,8 +323,9 @@ getElement("#install-allow-screen").onclick = function() {
     this.disabled = !0;
     chrome.webstore.install('https://chrome.google.com/webstore/detail/pmcehcchogemjkgofbnlhfdlgoedkpoa', 
        function() { 
-            alert("Inatallation complete ");
-            location.reload();
+            this.disabled = !0;
+            var screenid= captureSourceId();
+            addsharescreen(screenid);
         }, 
        function() { 
             alert("You did not complete the extension installation !");
