@@ -3127,7 +3127,7 @@ DetectRTC.screen = {
         var image = document.createElement('img');
         image.src = 'chrome-extension://' + extensionid + '/icon.png';
         image.onload = function () {
-            DetectRTC.screen.chromeMediaSource = 'screen';
+           // DetectRTC.screen.chromeMediaSource = 'screen';
             window.postMessage('are-you-there', '*');
 
             setTimeout(function () {
